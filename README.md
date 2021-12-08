@@ -25,3 +25,8 @@ Images:![cave](https://user-images.githubusercontent.com/75241036/145173471-9066
 ***
 ![_7505439](https://user-images.githubusercontent.com/75241036/145180850-ccd3248a-e732-4f15-b1c5-e5f4fe709b71.jpg)
 
+
+***
+Taishi Walden Logo
+![TW-logo-03](https://user-images.githubusercontent.com/75241036/145183428-c5ff2e93-bce9-4214-951b-f7ec87b742a1.png)
+
