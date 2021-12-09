@@ -62,4 +62,5 @@ Good Neighbor Cafe Website
 
 ***
 SDP Website
-![SDP-iphone-image](https://user-images.githubusercontent.com/75241036/145266446-3744100c-b054-4294-9fde-121ae2d5bb30.jpg)
+![SDP-Case-Graphic](https://user-images.githubusercontent.com/75241036/145311870-cc01871c-d3ca-4f17-8440-146dabfd9ff2.png)
+
