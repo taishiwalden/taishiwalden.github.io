@@ -43,7 +43,7 @@ Marketing Asset
 
 ***
 Laptop mockup Visneto
-![Visneto-Laptop-Mockup-Coffee-shop](https://user-images.githubusercontent.com/75241036/145262460-24a4c756-be5b-4ddd-b8ac-be348ce26a9b.jpg)
+![Visneto-image](https://user-images.githubusercontent.com/75241036/145542918-375dfa81-cf88-4397-a8c8-6cdbb97b00b6.jpg)
 
 ***
 backflip lake colchuck
