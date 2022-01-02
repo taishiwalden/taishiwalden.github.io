@@ -69,3 +69,8 @@ Good Neighbor Cafe Website
 SDP Website
 ![SDP-Case-Graphic](https://user-images.githubusercontent.com/75241036/145311870-cc01871c-d3ca-4f17-8440-146dabfd9ff2.png)
 
+***
+Cropped Headshot![personal website headshot](https://user-images.githubusercontent.com/75241036/147869573-7798839c-1cd3-4cf6-be1b-ad0a9d1e8ace.png)
+
+
+
