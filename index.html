@@ -1,314 +1,357 @@
 <!DOCTYPE html>
-<html>
-<title>Taishi Walden Website</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
-body, html {
-  height: 100%;
-  color: #777;
-  line-height: 1.8;
-}
+<html lang="en">
 
-/* Create a Parallax Effect */
-.bgimg-1, .bgimg-2, .bgimg-3 {
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
+<head>
 
-/* First image (Logo. Full height) */
-.bgimg-1 {
-  background-image: url('https://user-images.githubusercontent.com/75241036/145173471-9066c3e9-3de6-4d90-82d3-f9af4e70f4d0.jpg');
-  min-height: 100%;
-  background-size: cover;
-  opacity: .90;
-}
+    <!-- Basic Page Needs
+    ================================================== -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-/* Second image (Portfolio) */
-.bgimg-2 {
-  background-image: url('https://user-images.githubusercontent.com/75241036/145176614-fe75e6fa-dbec-4112-82a7-06f8787bee4e.jpg');
-  min-height: 400px;
-  background-size: cover;
-  opacity: .90;
-}
+    <title>Taishi Walden's Website</title>
 
-/* Third image (Contact) */
-.bgimg-3 {
-  background-image: url("https://user-images.githubusercontent.com/75241036/145175330-434f3a52-d589-4572-bd66-41ecaff89609.jpg");
-  min-height: 400px;
-  opacity: .90;
-}
+    <meta name="description"
+        content="Welcome to my website! I'm a digital marketer, consultant, and front-end developer">
+    <meta name="author" content="Taishi Walden">
+    <meta name="keywords" content="taishi, taishi walden, walden, cofounder, marketer, consultant, developer">
 
-.w3-wide {letter-spacing: 10px;}
-.w3-hover-opacity {cursor: pointer;}
+    <!-- Mobile Specific Metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
 
-/* Turn off parallax scrolling for tablets and phones */
-@media only screen and (max-device-width: 1600px) {
-  .bgimg-1, .bgimg-2, .bgimg-3 {
-    background-attachment: scroll;
-    min-height: 400px;
-  }
-}
-</style>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <!-- Favicon
+    ================================================== -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon.png">
+
+    <!-- Stylesheets
+    ================================================== -->
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
 <body>
 
-<!-- Navbar (sit on top) -->
-<div class="w3-top">
-  <div class="w3-bar" id="myNavbar">
-    <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
-      <i class="fa fa-bars"></i>
-    </a>
-    <a href="#home" class="w3-bar-item w3-button">HOME</a>
-    <a href="#about" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> ABOUT</a>
-    <a href="#portfolio" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> PORTFOLIO</a>
-    <a href="#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT</a>
-    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">
-      <i class="fa fa-search"></i>
-    </a>
-  </div>
+    <header id="masthead" class="site-header">
+        <nav id="primary-navigation" class="site-navigation">
+            <div class="container">
 
-  <!-- Navbar on small screens -->
-  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
-    <a href="#about" class="w3-bar-item w3-button" onclick="toggleFunction()">ABOUT</a>
-    <a href="#portfolio" class="w3-bar-item w3-button" onclick="toggleFunction()">PORTFOLIO</a>
-    <a href="#contact" class="w3-bar-item w3-button" onclick="toggleFunction()">CONTACT</a>
-    <a href="#" class="w3-bar-item w3-button">SEARCH</a>
-  </div>
-</div>
+                <div class="navbar-header">
 
-<!-- First Parallax Image with Logo Text -->
-<div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
-  <div class="w3-display-middle" style="white-space:nowrap;">
-    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">Taishi <span class="w3-hide-small">Walden</span>
-  </div>
-</div>
+                    <a class="site-title"><span>Taishi </span>Walden</a>
 
-<!-- Container (About Section) -->
-<div class="w3-content w3-container w3-padding-64" id="about">
-  <h3 class="w3-center">ABOUT ME</h3>
-  <p class="w3-center"><em>Marketer | Consultant | Front-End Developer</em></p>
-  <p>Welcome to my website. I am an undergraduate student at the University of Washington in the Henry M. Jackson School of International Studies.
-        I specialized in technological development and government policy in East Asia and International Political Economy. It's a field of study that integrates
-        Economics, Foreign Affairs, and Business. I am currently interested in pursuing a career in digital marketing consulting and software development.      
-  </p>
-  <div class="w3-row">
-    <div class="w3-col m6 w3-center w3-padding-large">
-      <p><b><i class="fa fa-user w3-margin-right"></i>Taishi Walden</b></p><br>
-      <img src="https://user-images.githubusercontent.com/75241036/145175758-687298ac-23c4-41f8-9893-db65e1410b4d.png" class="w3-round w3-image w3-opacity w3-hover-opacity-off" alt="Photo of Me" width="500" height="333">
-    </div>
+                </div><!-- /.navbar-header -->
 
-    <!-- Hide this text on small devices -->
-    <div class="w3-col m6 w3-hide-small w3-padding-large">
-      <p>I have had a variety of experiences with many different roles, from my time as a Marketing Manager at Visneto to my time as an Operations Assistant 
-    at the Brotman Baty Institute. I am not only used to making an impact in every role or project that I am a part of, but I also enjoy working in a challenging environment.</p>
-    </div>
-  </div>
-  <p class="w3-large w3-center w3-padding-16">I'm experienced with:</p>
-  <p class="w3-wide"><i class="fa fa-laptop"></i>Consulting</p>
-  <div class="w3-light-grey">
-    <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:70%">70%</div>
-  </div>
-  <p class="w3-wide"><i class="fa fa-laptop"></i>Finance</p>
-  <div class="w3-light-grey">
-    <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:65%">65%</div>
-  </div>
-  <p class="w3-wide"><i class="fa fa-laptop"></i>Digital Marketing</p>
-  <div class="w3-light-grey">
-    <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:80%">80%</div>
-  </div>
-  <p class="w3-wide"><i class="fa fa-laptop"></i>Web Development</p>
-  <div class="w3-light-grey">
-    <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:75%">75%</div>
-  </div>
-  <p class="w3-wide"><i class="fa fa-photo"></i>Adobe CC</p>
-  <div class="w3-light-grey">
-    <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:70%">70%</div>
-  </div>
-  <p class="w3-wide"><i class="fa fa-photo"></i>Japanese</p>
-  <div class="w3-light-grey">
-    <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:65%">65%</div>
-  </div>
-</div>
+                <div class="collapse navbar-collapse" id="agency-navbar-collapse">
 
-<div class="w3-row w3-center w3-dark-grey w3-padding-16">
-  <div class="w3-quarter w3-section">
-    <span class="w3-xlarge">8+</span><br>
-    Professional Certifications
-  </div>
-  <div class="w3-quarter w3-section">
-    <span class="w3-xlarge">14+</span><br>
-    Projects Managed
-  </div>
-  <div class="w3-quarter w3-section">
-    <span class="w3-xlarge">7+</span><br>
-    Countries Traveled
-  </div>
-  <div class="w3-quarter w3-section">
-    <span class="w3-xlarge">1+</span><br>
-    Venture 
-  </div>
-</div>
+                    <ul class="nav navbar-nav navbar-right">
 
-<!-- Second Parallax Image with Portfolio Text -->
-<div class="bgimg-2 w3-display-container w3-opacity-min">
-  <div class="w3-display-middle">
-    <span class="w3-xxlarge w3-text-white w3-wide">PORTFOLIO</span>
-  </div>
-</div>
+                        <li class="active"><a href="index.html" data-toggle="dropdown">Home</a></li>
+                        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages<i
+                                    class="fa fa-caret-down hidden-xs" aria-hidden="true"></i></a>
 
-<!-- Container (Portfolio Section) -->
-<div class="w3-content w3-container w3-padding-64" id="portfolio">
-  <h3 class="w3-center">PAST WORKS</h3>
-  <p class="w3-center"><em>Here are some of my latest projects,<br> click on the image to read about it!</em></p><br>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                                <li><a href="portfolio.html">Portfolio</a></li>
+                                <li><a href="blog.html">Blog</a></li>
+                            </ul>
 
-  <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
-  <div class="w3-row-padding w3-center">
-    <div class="w3-col m3">
-      <img src="https://user-images.githubusercontent.com/75241036/145262298-d81c2aed-746a-4c4a-8757-b8e39063781a.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Created a 20 page Adobe Indesign Interactive PDF for Visneto Media. The Marketing Asset is deployed using a popup on WordPress allowing users to enter their emails to recieve the FREE Digital Marketing Guide. Installed Google Analytics tracking code to measure the effectiveness of the Call-to-Action (CTA) ">
-    </div>
+                        </li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <!-- <li><a href="ui-elements.html">UI Elements</a></li> -->
 
-    <div class="w3-col m3">
-      <img src="https://user-images.githubusercontent.com/75241036/145542918-375dfa81-cf88-4397-a8c8-6cdbb97b00b6.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Developing and launching the Visneto Media website on wordpress.org after several weeks of testing and iteration. I utilize Google Analytics to provide a small team with bi-weekly performance reports. These reports are used to monitor the performance of the website, identify bottlenecks, and refine the marketing strategy for the company.">
-    </div>
+                    </ul>
 
-    <div class="w3-col m3">
-      <img src="https://user-images.githubusercontent.com/75241036/145180596-d3bad9a6-14ab-43c6-be7a-075e83538f51.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Co-Founded a media startup that produces content on local eateries, breweries, and nightlife venues in the Seattle area. Developed a digital marketing agency as part of the LLC, to provide marketing services tailored towards small and minority-owned businesses and restaurants. I also lead the campaign for a weekly newsletter across 6 social media platforms">
-    </div>
+                </div>
 
-    <div class="w3-col m3">
-      <img src="https://user-images.githubusercontent.com/75241036/145180850-ccd3248a-e732-4f15-b1c5-e5f4fe709b71.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Facilitated over 75+ shoots at Seattle eateries and bars, building relationships and connections with local business owners. This involves working with DLSRs, Adobe Lightroom/Photoshop, and lighting equipment.">
-    </div>
-  </div>
+            </div>
+        </nav><!-- /.site-navigation -->
+    </header><!-- /#mastheaed -->
 
-  <div class="w3-row-padding w3-center w3-section">
-    <div class="w3-col m3">
-      <img src="https://user-images.githubusercontent.com/75241036/145179609-cc0d0b31-a7b4-424e-b627-1b2f9e9c3c4b.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="I'm a top 5% language learner on Duolingo! My longest streak is 531 days. I use it primarily to maintain my Japanese, but sometimes practice Spanish and Mandarin!">
-    </div>
+    <div id="hero" class="hero overlay">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Taishi • 大志</h1>
+                <p>Digital Marketer | Consultant | Front-End Developer.</p>
+                <a href="#about_me" class="btn btn-border">About me</a>
+            </div><!-- /.hero-text -->
+        </div><!-- /.hero-content -->
+    </div><!-- /.hero -->
 
-    <div class="w3-col m3">
-      <img src="https://user-images.githubusercontent.com/75241036/145311870-cc01871c-d3ca-4f17-8440-146dabfd9ff2.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="A Squarespace website audit and redesign with an emphasis on legibility and ease of navigation (particularly on mobile and tablet). Commissioned by the UW Supplier Diversity Program.">
-    </div>
+    <main id="main" class="site-main">
 
-    <div class="w3-col m3">
-      <img src="https://user-images.githubusercontent.com/75241036/145266310-c29b4203-e8ee-4b4e-b0dd-e7f9f074a7f5.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Took portraits using a Canon EOS 70D DSLR (feat. my wonderful girlfriend). I enjoy photography as a hobby.">
-    </div>
+        <section class="site-section section-features">
+            <a id="about_me"></a>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-5">
+                        <h2>About me</h2>
+                        <p>I'm an undergraduate at the University of Washington in the Henry M. Jackson School
+                            of International Studies.
+                            I specialized in International Political Economy (IPE), a sub-field of economics and
+                            political science, which explores
+                            problems that arise from international finance, trade, multinational corporations,
+                            along with the consequences of economic globalization.
+                            <br>
+                            <br>
+                            Over the past year, I've done a considerable self study to learn design, web development,
+                            coding, and entreprenuership so I can learn about a variety of industries. I've always  
+                            had a passion for bringing things to life. From the ideation stage, researching, 
+                            creating a project timeline, and executing.
+                            <a class="class" href="https://www.visnetomedia.com/" id="Visneto">VISNETO </a>is my latest
+                            endeavor: we're revolutionizing the way people interact with their city
+                            through finding vibrant nightlife and new experiences.
+                            <br>
+                            <br>
+                            When I'm not behind my laptop, you'll find me boxing, reading, hiking, weightlifting, or 
+                            otherwise exploring the Pacific Northwest and beyond.
+                        </p>
+                    </div>
+                    <div class="col-sm-7 hidden-xs">
+                        <img src="https://user-images.githubusercontent.com/75241036/147869573-7798839c-1cd3-4cf6-be1b-ad0a9d1e8ace.png"
+                            alt="Picture of Me">
+                    </div>
+                </div>
+            </div>
+        </section><!-- /.section-features -->
 
-    <div class="w3-col m3">
-      <img src="https://user-images.githubusercontent.com/75241036/145262573-5d001646-ac33-4d66-a2fd-2250017a3ec7.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Initiated the UW Supplier Diversity Programs's first apparel fundraiser, sold over 65 units, and raised over $700 dollars for small and minority-owned businesses. It included constructing a Bonfire campaign and a coordinated social media promotion. 100% of the campaign proceeds were distributed to the City of Seattle’s Small Business Stabilization Fund.">
-    </div>
-    <button class="w3-button w3-padding-large w3-light-grey" style="margin-top:64px">LOAD MORE</button>
-  </div>
-</div>
+        <section class="site-section section-services gray-bg text-center">
+            <div class="container">
+                <h2 class="heading-separator">My skills</h2>
+                <p class="subheading-text">I'm experienced with:</p>
+                <div class="row">
+                    <div class="col-md-3 col-xs-6">
+                        <div class="service">
+                            <img src="assets/img/photo.svg" alt="">
+                            <h3 class="service-title">Art Technology</h3>
+                            <p class="service-info">Adobe Illustrator, Photoshop, Premiere Pro, XD, InDesign.</p>
+                        </div><!-- /.service -->
+                    </div>
+                    <div class="col-md-3 col-xs-6">
+                        <div class="service">
+                            <img src="assets/img/microphone.svg" alt="">
+                            <h3 class="service-title">Finance</h3>
+                            <p class="service-info">Interpreting financial statements, personal finance, budgeting.</p>
+                        </div><!-- /.service -->
+                    </div>
+                    <div class="col-md-3 col-xs-6">
+                        <div class="service">
+                            <img src="assets/img/rocket.svg" alt="">
+                            <h3 class="service-title">Digital Marketing</h3>
+                            <p class="service-info">SEO, Google Analytics, Google Search Console, campaign management.
+                            </p>
+                        </div><!-- /.service -->
+                    </div>
+                    <div class="col-md-3 col-xs-6">
+                        <div class="service">
+                            <img src="assets/img/chemestry.svg" alt="">
+                            <h3 class="service-title">Coding</h3>
+                            <p class="service-info">HTML, CSS, JS, Python, R, VS Code, Git.</p>
+                        </div><!-- /.service -->
+                    </div>
+                </div>
+            </div>
+        </section><!-- /.section-services -->
 
-<!-- Modal for full size images on click-->
-<div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
-  <span class="w3-button w3-large w3-black w3-display-topright" title="Close Modal Image"><i class="fa fa-remove"></i></span>
-  <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
-    <img id="img01" class="w3-image">
-    <p id="caption" class="w3-opacity w3-large"></p>
-  </div>
-</div>
+        <section class="site-section section-map-feature text-center">
 
-<!-- Third Parallax Image with Portfolio Text -->
-<div class="bgimg-3 w3-display-container w3-opacity-min">
-  <div class="w3-display-middle">
-     <span class="w3-xxlarge w3-text-white w3-wide">CONTACT</span>
-  </div>
-</div>
+            <div class="container">
+                <h2>At a glance</h2>
+                <p>Some quick facts about me.</p>
+                <a href="#portfolio" class="btn btn-fill">Learn More</a>
+                <div class="row">
+                    <div class="col-sm-3 col-xs-6">
+                        <div class="counter-item">
+                            <p class="counter" data-to="9" data-speed="2000">0</p>
+                            <h3>Certifications</h3>
+                        </div><!-- /.counter-item -->
+                    </div>
+                    <div class="col-sm-3 col-xs-6">
+                        <div class="counter-item">
+                            <p class="counter" data-to="18" data-speed="2000">0</p>
+                            <h3>Projects completed</h3>
+                        </div> <!-- /.counter-item -->
+                    </div>
+                    <div class="col-sm-3 col-xs-6">
+                        <div class="counter-item">
+                            <p class="counter" data-to="11" data-speed="1000">0</p>
+                            <h3>Blogs & articles</h3>
+                        </div><!-- /.counter-item -->
+                    </div>
+                    <div class="col-sm-3 col-xs-6">
+                        <div class="counter-item">
+                            <p class="counter" data-to="7" data-speed="1000">0</p>
+                            <h3>Countries traveled</h3>
+                        </div><!-- /.counter-item -->
+                    </div>
+                </div>
+            </div>
 
-<!-- Container (Contact Section) -->
-<div class="w3-content w3-container w3-padding-64" id="contact">
-  <h3 class="w3-center">Send me a message</h3>
-  <p class="w3-center"><em>I'd love to hear from ya!</em></p>
+        </section><!-- /.section-map-feature -->
 
-  <div class="w3-row w3-padding-32 w3-section">
-    <div class="w3-col m4 w3-container">
-      <img src="https://user-images.githubusercontent.com/75241036/145262423-b0934611-c98a-43f7-a452-1eebbdb16e5a.jpg" class="w3-image w3-round" style="width:100%">
-    </div>
-    <div class="w3-col m8 w3-panel">
-      <div class="w3-large w3-margin-bottom">
-        <i class="fa fa-map-marker fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Seattle, US<br>
-        <i class="fa fa-phone fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Phone: (206) 245-7735<br>
-        <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Email: taishiwalden@gmail.com<br>
-      </div>
-      <p>Want to chat and grab a cup of <i class="fa fa-coffee"></i> or leave me a note?</p>
-      <form action="/action_page.php" target="_blank">
-        <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
-          <div class="w3-half">
-            <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name">
-          </div>
-          <div class="w3-half">
-            <input class="w3-input w3-border" type="text" placeholder="Email" required name="Email">
-          </div>
+        <section class="site-section section-portfolio">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="heading-separator">Latest work</h2>
+                    <p class="subheading-text">Here are some of my latest projects.</p>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 col-md-4 col-xs-6">
+                        <div class="portfolio-item">
+                            <img src="assets/img/taskforcecover.jpeg" class="img-res" alt="">
+                            <h4 class="portfolio-item-title">UW Jackson School Task Force Publication</h4>
+                            <a href="portfolio-item.html"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                        </div><!-- /.portfolio-item -->
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6">
+                        <div class="portfolio-item">
+                            <img src="assets/img/Vasset.png" class="img-res" alt="">
+                            <h4 class="portfolio-item-title">Visneto: Interactive Marketing Asset</h4>
+                            <a href="marketing-asset.html"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                        </div><!-- /.portfolio-item -->
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6">
+                        <div class="portfolio-item">
+                            <img src="assets/img/portfolio-3.jpg" class="img-res" alt="">
+                            <h4 class="portfolio-item-title">Visneto: Responsive Nightlife Map</h4>
+                            <a href="portfolio-item.html"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                        </div><!-- /.portfolio-item -->
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6">
+                        <div class="portfolio-item">
+                            <img src="assets/img/portfolio-4.jpg" class="img-res" alt="">
+                            <h4 class="portfolio-item-title">Good Neighbor Cafe Branding & Website</h4>
+                            <a href="portfolio-item.html"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                        </div><!-- /.portfolio-item -->
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6">
+                        <div class="portfolio-item">
+                            <img src="https://user-images.githubusercontent.com/75241036/145542918-375dfa81-cf88-4397-a8c8-6cdbb97b00b6.jpg" class="img-res" alt="">
+                            <h4 class="portfolio-item-title">Visneto: Official Website Launch</h4>
+                            <a href="portfolio-item.html"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                        </div><!-- /.portfolio-item -->
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6">
+                        <div class="portfolio-item">
+                            <img src="assets/img/cruxcapmoodboard.png" class="img-res" alt="">
+                            <h4 class="portfolio-item-title">Crux Capital Branding & Design</h4>
+                            <a href="portfolio-item.html"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                        </div><!-- /.portfolio-item -->
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6">
+                        <div class="portfolio-item">
+                            <img src="https://user-images.githubusercontent.com/75241036/145262573-5d001646-ac33-4d66-a2fd-2250017a3ec7.png" class="img-res" alt="">
+                            <h4 class="portfolio-item-title">Small Business Apparel Fundraiser</h4>
+                            <a href="portfolio-item.html"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                        </div><!-- /.portfolio-item -->
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6">
+                        <div class="portfolio-item">
+                            <img src="https://user-images.githubusercontent.com/75241036/145311870-cc01871c-d3ca-4f17-8440-146dabfd9ff2.png" class="img-res" alt="">
+                            <h4 class="portfolio-item-title">Supplier Diversity Program Website Audit</h4>
+                            <a href="portfolio-item.html"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                        </div><!-- /.portfolio-item -->
+                    </div>
+                </div>
+            </div>
+        </section><!-- /.section-portfolio -->
+
+        <section class="site-section section-newsletter text-center">
+            <div class="container">
+                <h2>Subscribe to my newsletter 🚀</h2>
+                <form class="form-group newsletter-group">
+                    <input type="email" class="form-control" placeholder="Your e-mail" required>
+                    <button class="btn btn-green" type="button">Submit</button>
+                </form><!-- /.newsletter-group -->
+            </div>
+        </section><!-- /.section-newsletter -->
+
+    </main><!-- /#main -->
+
+    <footer id="colophon" class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-4 col-xs-6">
+                    <a class="site-title"><span>Taishi </span>Walden</a>
+                    <p>digital marketer, consultant, and front-end developer.</p>
+                    <p>currently looking to connect and collaborate on projects to develop my skills.</p>
+                </div>
+                <div class="col-lg-offset-4 col-md-3 col-sm-4 col-md-offset-2 col-sm-offset-0 col-xs-6 ">
+                    <h3>Contact me</h3>
+                    <ul class="list-unstyled contact-links">
+                        <li><i class="fa fa-envelope" aria-hidden="true"></i><a
+                                href="mailto:taishiwalden@gmail.com">taishiwalden@gmail.com</a></li>
+                        <li><i class="fa fa-phone" aria-hidden="true"></i><a href="tel:+1 (206) 245-7735">+1 (206)
+                                245-7735
+                            </a></li>
+                        <li><i class="fa fa-map-marker" aria-hidden="true"></i>
+                            <p>Seattle, WA</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="clearfix visible-xs"></div>
+                <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
+                    <h3>Featured links</h3>
+                    <ul class="list-unstyled">
+                        <li class="active"><a href="index.html">Home</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="portfolio.html">Porfolio</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <input class="w3-input w3-border" type="text" placeholder="Message" required name="Message">
-        <button class="w3-button w3-black w3-right w3-section" type="submit">
-          <i class="fa fa-paper-plane"></i> SEND MESSAGE
-        </button>
-      </form>
-    </div>
-  </div>
-</div>
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-8">
+                        <div class="social-links">
+                            <a class="twitter-bg" href="https://twitter.com/taishiwalden"><i class="fa fa-twitter"></i></a>
+                            <a class="facebook-bg" href="https://www.facebook.com/profile.php?id=100012234427518"><i class="fa fa-facebook"></i></a>
+                            <a class="pinterest" href="https://www.instagram.com/taishi_desu/"><i class="fa fa-instagram"></i></a>
+                            <a class="linkedin-bg" href="https://www.linkedin.com/in/taishiwalden/"><i class="fa fa-linkedin"></i></a>
+                        </div><!-- /.social-links -->
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="text-right">
+                            <p>&copy; Taishi Walden</p>
+                            <p>All Rights Reserved</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.copyright -->
+    </footer><!-- /#footer -->
 
-<!-- Footer -->
-<footer class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
-  <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
-  <div class="w3-xlarge w3-section">
-      <a href="https://www.facebook.com/profile.php?viewas=100000686899395&id=100012234427518">
-        <i class="fa fa-facebook-official w3-hover-opacity"></i>
-      </a>
-      <a href="https://www.instagram.com/taishi_desu/">
-        <i class="fa fa-instagram w3-hover-opacity"></i>
-      </a>
-      <a href="https://www.snapchat.com/add/taishi_walden?share_id=QjNENkRC&locale=en_US">
-        <i class="fa fa-snapchat w3-hover-opacity"></i>
-      </a>
-      <a href="https://twitter.com/taishiwalden">
-        <i class="fa fa-twitter w3-hover-opacity"></i>
-      </a>
-      <a href="https://www.linkedin.com/in/taishiwalden/">
-        <i class="fa fa-linkedin w3-hover-opacity"></i>
-      </a>
-  </div>
-  <p>Powered by <a href="https://www.visnetomedia.com" title="VISNETO MEDIA" target="_blank" class="w3-hover-text-green">Visneto Media</a></p>
-</footer>
- 
-<script>
-// Modal Image Gallery
-function onClick(element) {
-  document.getElementById("img01").src = element.src;
-  document.getElementById("modal01").style.display = "block";
-  var captionText = document.getElementById("caption");
-  captionText.innerHTML = element.alt;
-}
 
-// Change style of navbar on scroll
-window.onscroll = function() {myFunction()};
-function myFunction() {
-    var navbar = document.getElementById("myNavbar");
-    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-        navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " w3-white";
-    } else {
-        navbar.className = navbar.className.replace(" w3-card w3-animate-top w3-white", "");
-    }
-}
-
-// Used to toggle the menu on small screens when clicking on the menu button
-function toggleFunction() {
-    var x = document.getElementById("navDemo");
-    if (x.className.indexOf("w3-show") == -1) {
-        x.className += " w3-show";
-    } else {
-        x.className = x.className.replace(" w3-show", "");
-    }
-}
-</script>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/bootstrap-select.min.js"></script>
+    <script src="assets/js/jquery.slicknav.min.js"></script>
+    <script src="assets/js/jquery.countTo.min.js"></script>
+    <script src="assets/js/jquery.shuffle.min.js"></script>
+    <script src="assets/js/script.js"></script>
 
 </body>
+
 </html>
