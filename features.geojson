@@ -1,0 +1,133 @@
+{
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Jerusalem",
+          "description": "Jerusalem is the capital of Israel.  It is one of the oldest cities in the world, and is considered holy to the three major Abrahamic religions—Judaism, Christianity, and Islam."
+        },
+        "geometry": {
+          "coordinates": [
+            35.216621,
+            31.777141
+          ],
+          "type": "Point"
+        },
+        "id": "48d352fe5c88b29680f9ce8d7a233191"
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Gaza Strip",
+          "description": "140 square mile strip of land controlled by Hamas since 2007 and subject to an Israeli blockade ever since, home to almost 2 million Palestinians"
+        },
+        "geometry": {
+          "coordinates": [
+            [
+              [
+                34.492975,
+                31.592528
+              ],
+              [
+                34.570187,
+                31.537705
+              ],
+              [
+                34.364289,
+                31.370295
+              ],
+              [
+                34.373941,
+                31.2961
+              ],
+              [
+                34.267775,
+                31.224598
+              ],
+              [
+                34.222735,
+                31.323586
+              ],
+              [
+                34.492975,
+                31.592528
+              ]
+            ]
+          ],
+          "type": "Polygon"
+        },
+        "id": "5c76ad75992aaac989465955479e2fb4"
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Old City of Jerusalem",
+          "description": "Neighborhood in East Jerusalem; made up entire city until late 19th century; home to important Christian, Muslim, and Jewish religious holy sites"
+        },
+        "geometry": {
+          "coordinates": [
+            [
+              [
+                35.226099,
+                31.778521
+              ],
+              [
+                35.231607,
+                31.782437
+              ],
+              [
+                35.236914,
+                31.783756
+              ],
+              [
+                35.238967,
+                31.781713
+              ],
+              [
+                35.237665,
+                31.779841
+              ],
+              [
+                35.237715,
+                31.77601
+              ],
+              [
+                35.231306,
+                31.772902
+              ],
+              [
+                35.228052,
+                31.773115
+              ],
+              [
+                35.227851,
+                31.776819
+              ],
+              [
+                35.226099,
+                31.778521
+              ]
+            ]
+          ],
+          "type": "Polygon"
+        },
+        "id": "7ba8dfb2d8196a463676254236476581"
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Al-Aqsa Mosque",
+          "description": "Considered the third holiest site in Islam, located in Jerusalem"
+        },
+        "geometry": {
+          "coordinates": [
+            35.235576,
+            31.77625
+          ],
+          "type": "Point"
+        },
+        "id": "9e34f44c4e4aa2afecbf0e85c16e72af"
+      }
+    ],
+    "type": "FeatureCollection"
+  }
