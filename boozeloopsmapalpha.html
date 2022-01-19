@@ -1,0 +1,596 @@
+<!--Taishi Walden, Visneto-LLC, Booze Loops, Version 0.0.6-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <!-- Basic Page Needs
+  ================================================== -->
+  <meta charset='utf-8'>
+  <title>Capitol Hill Booze Loops</title>
+  <meta name='viewport' content="width=device-width, initial-scale=1">
+
+  <meta name="description" content="Find lively venues in your proximity">
+  <meta name="author" content="Taishi Walden, Visneto-LLC">
+  <meta name="keywords" content="visneto, visneto llc, visneto seattle, visneto bellingham, open near me, venues">
+
+  <!-- Add the `mapbox-gl-js` library to the page. This gives our JS code below access to the `mapboxgl` object -->
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.4.0/mapbox-gl.js'></script>
+  <!-- Add some default styling for the map container & controls -->
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.4.0/mapbox-gl.css' rel='stylesheet' />
+
+  <!-- Mobile Specific Metas
+  ================================================== -->
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,600,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+
+  <!-- Stylesheets
+  ================================================== -->
+  <!-- Bootstrap core CSS -->
+ <!-- Custom styles for this template -->
+  
+  <!-- <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+ 
+  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="assets/css/responsive.css" rel="stylesheet"> -->
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      color: #404040;
+      font: 400 15px/22px 'Source Sans Pro', 'Helvetica Neue', sans-serif;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1 {
+      /*font-size: 31px;*/
+      font: 31px 'Poppins';
+      margin: 0;
+      color: #000000;
+      font-weight: bold;
+      line-height: 20px;
+      padding: 20px 2px;
+    }
+
+    h2 {
+      text-align: center;
+      font-weight: bold;
+      line-height: 20px;
+    }
+
+    h3 {
+      text-align: left;
+      color: #0036ac;
+      font: 16px 'Poppins';
+      font-weight: bold;
+    }
+
+    .overlay {
+      position: absolute;
+      left: 25%;
+      top: 0;
+      background: rgba(0, 0, 0, 0);
+      /* Black see-through */
+      color: #f1f1f1;
+      scale: 20%;
+      width: 20%;
+      /* transition: .5s ease; */
+      /* color: white; */
+      /* font-size: 20px; */
+      padding: 10px;
+      text-align: left;
+      opacity: 1;
+      z-index: 10;
+    }
+
+    a {
+      color: #404040;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #101010;
+    }
+
+    img {
+      display: block;
+      height: auto;
+      position: absolute;
+      float: right;
+    }
+
+    /* The page is split between map and sidebar - the sidebar gets 1/3, map
+        gets 2/3 of the page. You can adjust this to your personal liking. */
+    .sidebar {
+      position: absolute;
+      width: 25%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      overflow: hidden;
+      border-right: 1px solid rgba(13, 47, 240, 0.25);
+    }
+
+    .map {
+      position: absolute;
+      left: 25%;
+      width: 75%;
+      top: 0;
+      bottom: 0;
+    }
+
+    .heading {
+      background: #FFBC42;
+      border-bottom: 1px solid #eee;
+      text-align: center;
+      height: 130px;
+      line-height: 60px;
+      padding: 0 10px;
+    }
+
+    .listings {
+      height: 100%;
+      overflow: auto;
+      padding-bottom: 60px;
+    }
+
+    .listings .item {
+      border-bottom: 1px solid rgb(97, 97, 97);
+      padding: 20px;
+      text-decoration: none;
+    }
+
+    .listings .item:last-child {
+      border-bottom: 10px solid #FFBC42;
+    }
+
+    .listings .item .title {
+      display: block;
+      color: #0036ac;
+      font-weight: 700;
+    }
+
+    .listings .item .title small {
+      font-weight: 400;
+    }
+
+    .listings .item.active .title,
+    .listings .item .title:hover {
+      color: #3893dd;
+    }
+
+    .listings .item.active {
+      background-color: #f8f8f8;
+    }
+
+    ::-webkit-scrollbar {
+      width: 3px;
+      height: 3px;
+      border-left: 0;
+      background: rgba(0, 0, 0, 0.1);
+    }
+
+    ::-webkit-scrollbar-track {
+      background: none;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #0044d8;
+      border-radius: 0;
+    }
+
+    .marker {
+      border: none;
+      cursor: pointer;
+      height: 55px;
+      width: 36px;
+      background-image: url('Images/CapHillMarker.svg');
+    }
+
+    .mapboxgl-popup {
+      padding-bottom: 50px;
+      min-width: 400px;
+    }
+
+    .logo {
+      height: 113;
+      width: 250;
+      background-image: url('Images/vbl.svg');
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class='sidebar'>
+    <!-- Add a #map and #sidebar element to the page, to serve as the map's container -->
+    <div class='heading'>
+      <h1>Capitol Hill</h1>
+      <h2>Booze Loops</h2>
+    </div>
+    <div id='listings' class='listings'></div>
+  </div>
+
+  <div class="overlay"><img class="image" src="Images/vbl.svg" /></div>
+
+  <!-- <div class='logo'>
+    <img src="Images/vbl.svg" alt="visnetoblockletters" style="width:450px;height:115px;" align="border-right">
+  </div> -->
+
+  <div id="map" class="map">
+
+  </div>
+
+  <!--<img src="Images/vbl.svg" alt="visnetoblockletters" style="width:150px;height:115px;"> -->
+  <script>
+
+    mapboxgl.accessToken = 'pk.eyJ1IjoidGFpc2hpd2FsZGVuIiwiYSI6ImNrcXkzaWJvbzE0Zzgyd21mZHVjNDBvYmIifQ.E2__hXdmUMAPh2zjvGjJgw';
+    // Set an access token to allow the browser to load the map from our account
+
+    const map = new mapboxgl.Map({                                       // Instantiate a new Map object to load the map itself
+      style: 'mapbox://styles/taishiwalden/ckv4dc46a3qlk15r03duipl6i',   // This tells the map which style to use
+      container: 'map',                                                  // id of the container div we created above
+      center: [-122.319674, 47.614143],                                      // the location to display when the map first loads
+      zoom: 10,                                                          // the zoom level to display when the map first loads
+      minZoom: 10,
+      maxZoom: 18,
+      pitch: 0   // pitch in degrees
+    });
+
+    const stores = {
+      "type": "FeatureCollection",    //1: Unicorn Bar
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -122.317224,      //find these coordinates on MapBox itself
+              47.614247
+            ]
+          },
+          "properties": {
+            "phoneFormatted": "(206) 297-0507",
+            "phone": "2062970507",
+            "address": "Unicorn Bar",//shows up in sidebar
+            "city": "1118 E Pike St", //city shows up on sidebar
+            "country": "United States",
+            "crossStreet": "2026 NW Market St",
+            "postalCode": "98107",
+            "state": "WA",
+            "imagename": "kangarooandkiwi.jpg", //included
+            "description": "If it’s someone’s birthday, order them a unicorn jizz and make them wear “the hat" //included
+          }
+        },
+        {
+          "type": "Feature",          //2: Rhein Haus
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -122.316578,
+              47.610929
+            ]
+          },
+          "properties": {
+            "phoneFormatted": "(206) 782-5182",
+            "phone": "2067825182",
+            "address": "Rhein Haus", //shows up in sidebar
+            "city": "912 12th Ave", //city shows up on sidebar
+            "country": "United States",
+            "crossStreet": "at 22nd St NW",
+            "postalCode": "20037",
+            "state": "D.C.",
+            "imagename": "shingletownsaloon.jpeg",
+            "description": "update description"
+          }
+        },
+        {
+          "type": "Feature",          //3: Comet Tavern
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -122.319669,
+              47.614247
+            ]
+          },
+          "properties": {
+            "phoneFormatted": "(206) 258-2162",
+            "phone": "2062582162",
+            "address": "Comet Tavern", //shows up in sidebar
+            "city": "922 E Pike St", //city shows up on sidebar
+            "country": "United States",
+            "crossStreet": "at Dupont Circle",
+            "postalCode": "20036",
+            "state": "WA",
+            "imagename": "ponoranch.jpeg",
+            "description": "Update description"
+          }
+        },
+        {
+          "type": "Feature",          //4: Capitol Cider
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -122.321049,
+              47.614247
+            ]
+          },
+          "properties": {
+            "phoneFormatted": "(206) 829-9615",
+            "phone": "2068299615",
+            "address": "Capitol Cider", //shows up in sidebar
+            "city": "818 E Pike St", //shows up in sidebar
+            "country": "United States",
+            "crossStreet": "at 34th St NW",
+            "postalCode": "20007",
+            "state": "WA",
+            "imagename": "skalbeerhall.jpeg",
+            "description": "Update description"
+          }
+        },
+        {
+          "type": "Feature",          //5: The Rhino Room
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -122.318453,
+              47.615094
+            ]
+          },
+          "properties": {
+            "phoneFormatted": "(206) 258-3900",
+            "phone": "2062583900",
+            "address": "The Rhino Room", //shows up in sidebar
+            "city": "1535 11th Ave", //shows up in sidebar
+            "country": "United States",
+            "crossStreet": "btwn 2nd & 3rd Sts. SE",
+            "postalCode": "20003",
+            "state": "WA",
+            "imagename": "sunsettavern.jpeg",
+            "description": "Update description"
+          }
+        },
+        {
+          "type": "Feature",          //6: Hillside Bar
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -122.326023,
+              47.618294
+            ]
+          },
+          "properties": {
+            "phoneFormatted": "(206) 324-0154",
+            "phone": "2062583900",
+            "address": "Hillside Bar", //shows up in sidebar
+            "city": "1520 E Olive Way", //shows up in sidebar
+            "country": "United States",
+            "crossStreet": "btwn 2nd & 3rd Sts. SE",
+            "postalCode": "20003",
+            "state": "WA",
+            "imagename": "sunsettavern.jpeg",
+            "description": "Update description"
+          }
+        },
+        {
+          "type": "Feature",          //7: Queer/Bar
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -122.317898,
+              47.614759
+            ]
+          },
+          "properties": {
+            "phoneFormatted": "(206) 784-4480",
+            "phone": "2067844480",
+            "address": "Queer/Bar", //shows up in sidebar
+            "city": "1518 11th Ave,", //shows up in sidebar
+            "country": "United States",
+            "crossStreet": "btwn 2nd & 3rd Sts. SE",
+            "postalCode": "20003",
+            "state": "WA",
+            "imagename": "sunsettavern.jpeg",
+            "description": "Update description"
+          }
+        },
+        {
+          "type": "Feature",          //8: Optimism Brewing Company
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -122.320513,
+              47.612786
+            ]
+          },
+          "properties": {
+            "phoneFormatted": "(206) 789-3599",
+            "phone": "2067893599",
+            "address": "Optimism Brewing Company",
+            "city": "1158 Broadway",
+            "country": "United States",
+            "crossStreet": "btwn 2nd & 3rd Sts. SE",
+            "postalCode": "20003",
+            "state": "WA",
+            "imagename": "tractortavern.jpeg",
+            "description": "Update description"
+          }
+        }
+      ]
+    };
+
+    /** Assign a unique id to each store. You'll use this `id`
+    * later to associate each point on the map with a listing in the sidebar.*/
+    stores.features.forEach((store, i) => {
+      store.properties.id = i;
+    });
+
+    function buildLocationList(stores) {
+      for (const store of stores.features) {
+
+        const listings = document.getElementById('listings');                 /*Add a new listing section to the sidebar.*/
+        const listing = listings.appendChild(document.createElement('div'));
+        listing.id = `listing-${store.properties.id}`;                        /*Assign a unique `id` to the listing.*/
+        listing.className = 'item';                                           /*Assign the `item` class to each listing for styling.*/
+
+        const link = listing.appendChild(document.createElement('a'));        /*Add the link to the individual listing created above.*/
+        link.href = '#';
+        link.className = 'title';
+        link.id = `link-${store.properties.id}`;
+        link.innerHTML = `${store.properties.address}`;
+
+        /* Add details to the individual listing. */
+        const details = listing.appendChild(document.createElement('div'));
+        details.innerHTML = `${store.properties.city}`;
+        if (store.properties.phone) {
+          details.innerHTML += ` · ${store.properties.phoneFormatted}`;
+        }
+        if (store.properties.distance) {
+          const roundedDistance = Math.round(store.properties.distance * 100) / 100;
+          details.innerHTML += `<div><strong>${roundedDistance} miles away</strong></div>`;
+        }
+
+        link.addEventListener('click', function () {   /*fire when user clicks in sidebar or when user clicks on a restaurant on the map*/
+          for (const feature of stores.features) {
+            if (this.id === `link-${feature.properties.id}`) {
+              flyToStore(feature);
+              createPopUp(feature);
+            }
+          }
+          const activeItem = document.getElementsByClassName('active');
+          if (activeItem[0]) {
+            activeItem[0].classList.remove('active');
+          }
+          this.parentNode.classList.add('active');
+        });
+
+      }
+    }
+
+    function flyToStore(currentFeature) {
+      map.flyTo({
+        center: currentFeature.geometry.coordinates,
+        zoom: 15
+      });
+    }
+
+    function createPopUp(currentFeature) {
+      const popUps = document.getElementsByClassName('mapboxgl-popup');
+
+      /** Check if there is already a popup on the map and if so, remove it */
+      if (popUps[0]) popUps[0].remove();
+
+      const popup = new mapboxgl.Popup({ closeOnClick: false })   //Popup for each venue
+        .setLngLat(currentFeature.geometry.coordinates)
+        .setHTML(`<h3>${currentFeature.properties.address}</h3><h4>${currentFeature.properties.description} </h4>` +
+          `<a><img alt="venue image" src="Images/${currentFeature.properties.imagename}" + alt width="130" height="104" style="display:block; height:auto; aspect-ratio: 130/104;"></a>`) // float:right;width:120px;height:120px;"
+        .addTo(map);
+      //popup.setMaxWidth('150');
+    }
+
+    function rotate() {
+      map.easeTo({ bearing: 40, duration: 5000, pitch: 40, zoom: 15 }); // 1000ms = 1 second
+      window.setTimeout(() => {
+      }, 10000);
+    }
+
+    map.on('load', () => {
+      rotate();
+      delay();
+      /*setTimeout(function delay(){
+                  // call the plugin here
+      },5000); // 1000ms = 1 second */
+
+      map.addSource('places', {
+        type: 'geojson',
+        data: stores
+      });
+
+      function addMarkers() {
+
+        /* For each feature in the GeoJSON object above: */
+        for (const marker of stores.features) {
+          /* Create a div element for the marker. */
+          const el = document.createElement('div');
+          /* Assign a unique `id` to the marker. */
+          el.id = `marker-${marker.properties.id}`;
+          /* Assign the `marker` class to each marker for styling. */
+          el.className = 'marker';
+
+          /** Create a marker using the div element
+           * defined above and add it to the map.
+           **/
+
+          new mapboxgl.Marker(el, { offset: [0, -23] })
+            .setLngLat(marker.geometry.coordinates)
+            .addTo(map);
+
+          el.addEventListener('click', (e) => {
+            /* Fly to the point */
+            flyToStore(marker);
+            /* Close all other popups and display popup for clicked store */
+            createPopUp(marker);
+            /* Highlight listing in sidebar */
+            const activeItem = document.getElementsByClassName('active');
+            e.stopPropagation();
+            if (activeItem[0]) {
+              activeItem[0].classList.remove('active');
+            }
+            const listing = document.getElementById(`listing-${marker.properties.id}`
+            );
+            listing.classList.add('active');
+          });
+        }
+      }
+      buildLocationList(stores);
+      addMarkers();
+    });
+
+    function delay() {
+      IntroPop = setTimeout(IntroPopup, 5000);
+      var IntroPopup = new mapboxgl.Popup({ closeOnClick: false })  //introduction popup when it first initiates
+        .setLngLat([-122.308882, 47.612907])
+        .setHTML('<h2 style="color:black;">Welcome to Booze Loops!</h2>' +
+          '<a href="https://www.google.com/"><img alt="Intro" src="Images/boozeloopsintro.png" width=220" height="220"></a>')
+        .addTo(map);
+    }
+
+    /*var IntroPopup = new mapboxgl.Popup({ closeOnClick: false })  //introduction popup when it first initiates
+        .setLngLat([-122.3741, 47.6699])
+        .setHTML('<h2 style="color:black;">Welcome to Booze Loops!</h2>' + 
+        '<a href="https://www.google.com/"><img alt="Intro" src="Images/boozeloopsintro.png" width=220" height="220"></a>')
+        .addTo(map); */
+
+    const clickedFeatures = map.queryRenderedFeatures(event.point, { layers: ['symbols'] });
+
+    if (clickedFeatures.length > 0) {
+      clicked.title = clickedFeatures[0].properties.title;
+      clicked.description = clickedFeatures[0].properties.description;
+      clicked.imagename = clickedFeatures[0].properties.imagename;
+
+      console.log("imagename: ", clickedFeatures[0].properties);
+
+      const popup = new mapboxgl.Popup() // create the popup
+        .setLngLat(clicked.location.center) // position it at the clicked point
+        .setHTML('<h3>' + clicked.title + '</h3><p>' + clicked.description + '</p>' +
+          '<a href="https://www.google.com/"><img alt="Intro" src="Images/' + clicked.imagename + '"' + 'width="220" height="220"></a>') // add some HTML content
+        .addTo(map); // place the popup on the map
+    }
+
+    console.log(JSON.stringify(clicked, null, 2));
+
+  </script>
+</body>
+
+</html>
